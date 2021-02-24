@@ -21,7 +21,7 @@ router.get('/new', (req, res) => {
 // CREATE ROUTE /////
 router.post('/', async (req, res) => {
   try {
-    const newCountry = await db.country.create({
+    const newCountry = await models.country.create({
       name: req.body.name,
       founded: req.body.founded,
       population: req.body.population
@@ -60,7 +60,7 @@ router.put('/:id', async (req, res) => {
 })
 
 
-// DELETE ROUTE
+// DELETE ROUTE -- GOOD
 router.delete('/:id', (req, res) => {
   models.country.destroy({
     where: { id: req.params.id }
