@@ -4,11 +4,16 @@ const models = require('../models')
 
 router.get('/', (req, res) => {
   models.country.findAll().then((countries) => {
-    res.json({ countries })
+    res.render('countries/index', {
+      countries: countries })
   })
   .catch((error) => {
     res.json({ error })
   })
+})
+
+router.get("/new", (req, res) => {
+  res.render("countries/new")
 })
 
 router.post('/', (req, res) => {
@@ -17,7 +22,9 @@ router.post('/', (req, res) => {
     founded: req.body.founded,
     population: req.body.population
   }).then((country) => {
-    res.json({ country })
+    res.render("countries/new", {
+      country
+    })
   })
   .catch((error) => {
     res.json({ error })
@@ -27,7 +34,9 @@ router.post('/', (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const country = await models.country.findByPk(req.params.id)
-    res.json({ country })
+    res.render("countries/show", {
+      country
+    })
   } catch (error) {
     res.json({ error })
   }
