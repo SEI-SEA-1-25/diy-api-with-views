@@ -5,11 +5,11 @@
   <h2><%= country.name %></h2>
   <p>Popluation of: <%= country.population %></p>
 
-  <form method="POST" action="/countrys/<%= country.id %>/?_method=DELETE">
+  <form method="POST" action="/countries/<%= country.id %>/?_method=DELETE">
     <input type="submit" value="Delete" />
   </form>
 
-  <form method="POST" action="/countrys/<%= country.id %>/?_method=PUT">
+  <form method="POST" action="/countries/<%= country.id %>/?_method=PUT">
     <label>Name</label>
     <input type="text" name="type" value="<%= country.name %>" />
 
