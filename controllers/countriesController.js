@@ -1,64 +1,72 @@
-const router = require('express').Router()
+const router = require("express").Router();
+const db = require("../models");
 
-const models = require('../models')
-
-router.get('/', (req, res) => {
-  models.country.findAll().then((countries) => {
-    res.json({ countries })
-  })
-  .catch((error) => {
-    res.json({ error })
-  })
-})
-
-router.post('/', (req, res) => {
-  models.country.create({
-    name: req.body.name,
-    founded: req.body.founded,
-    population: req.body.population
-  }).then((country) => {
-    res.json({ country })
-  })
-  .catch((error) => {
-    res.json({ error })
-  })
-})
-
-router.get('/:id', async (req, res) => {
+// INDEX route
+router.get("/", async (req, res) => {
   try {
-    const country = await models.country.findByPk(req.params.id)
-    res.json({ country })
-  } catch (error) {
-    res.json({ error })
+    const countrys = await db.country.findAll({ raw: true });
+    // console.log(countrys)
+    // res.send()
+    res.render("countries/index", { countrys: countrys });
+  } catch (err) {
+    console.log(err);
   }
-})
+});
 
-router.put('/:id', async (req, res) => {
+// New country form route
+router.get("/new", (req, res) => {
+  res.render("countries/new");
+});
+
+// SHOW countrys
+router.get("/:id", async (req, res) => {
   try {
-    await models.country.update(req.body, {
-      where: {
-        id: req.params.id
-      }
-    })
-
-    const country = await models.country.findByPk(req.params.id)
-    res.json({ country })
-  } catch (error) {
-    res.json({ error })    
+    const country = await db.country.findByPk(req.params.id, { raw: true });
+    console.log(country);
+    const countrys = await db.country.findAll({ raw: true });
+    res.render("countries/show", { country });
+  } catch (err) {
+    console.log(err);
   }
-})
+});
 
-router.delete('/:id', (req, res) => {
-  models.country.destroy({
-    where: { id: req.params.id }
-  })
-  .then((country) => {
-    res.json({ country })
-  })
-  .catch((err) => {
-    res.json({ error })
-  })
-})
+// Create route
+router.post("/", async (req, res) => {
+  try {
+    // console.log(req.body);
+    const newcountry = await db.country.create({
+      name: req.body.name,
+      population: req.body.population,
+    });
+    res.redirect(`/countries/${newcountry.id}`);
+  } catch (err) {
+    console.log(err);
+  }
+});
 
+// UPDATE route
+router.put("/:id", async (req, res) => {
+  try {
+    const country = await db.country.findByPk(req.params.id);
+    const updatedcountry = await country.update({
+      type: req.body.type,
+      img_url: req.body.img_url,
+    });
+    res.redirect(`/countries/${req.params.id}`);
+  } catch (err) {
+    console.log(err);
+  }
+});
 
-module.exports = router
+// DELETE route
+router.delete("/:id", async (req, res) => {
+  try {
+    const country = await db.country.findByPk(req.params.id);
+    const deletedcountry = await country.destroy();
+    res.redirect("/countries");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+module.exports = router;
