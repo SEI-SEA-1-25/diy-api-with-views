@@ -50,6 +50,7 @@ router.put('/:id', async (req, res) => {
     })
     await models.country.findByPk(req.params.id)
     res.redirect(`/countries/${req.params.id}`)
+    //could also say ? /countries/${country.id}
   } catch (error) {
     res.json({ error })    
   }

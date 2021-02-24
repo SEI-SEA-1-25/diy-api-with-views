@@ -12,7 +12,7 @@ const rowdyRes = rowdy.begin(app)
 
 
 app.set('view engine', 'ejs')
-app.use(express.static( __dirname + '/public'))
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 app.use(ejsLayouts)
 app.use(methodOverride('_method'))

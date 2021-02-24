@@ -12,12 +12,12 @@ router.get('/', (req, res) => {
 router.get('/new', (req, res) => {
   res.render('continents/new')
 })
-router.get('/new_country', (req, res) => {
-  res.render('continents/new_country')
-})
-router.get('/continent_countries', (req, res) => {
-  res.render('continents/continent_countries')
-})
+// router.get('/new_country', (req, res) => {
+//   res.render('continents/new_country')
+// })
+// router.get('/continent_countries', (req, res) => {
+//   res.render('continents/continent_countries')
+// })
 //create continent
 router.post('/', (req, res) => {
   models.continent.create({
@@ -43,7 +43,7 @@ router.get('/:id/countries', async (req, res) => {
 
   const countries = await continent.getCountries()
 
-  res.render(`continents/${req.params.id}/countries`, { countries })
+  res.render(`continents/countries`, { countries, continent })
 })
 
 router.post('/:id/countries', async (req, res) => {
