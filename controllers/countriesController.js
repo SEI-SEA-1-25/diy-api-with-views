@@ -49,8 +49,8 @@ router.put("/:id", async (req, res) => {
   try {
     const country = await db.country.findByPk(req.params.id);
     const updatedcountry = await country.update({
-      type: req.body.type,
-      img_url: req.body.img_url,
+      name: req.body.name,
+      population: req.body.population,
     });
     res.redirect(`/countries/${req.params.id}`);
   } catch (err) {
