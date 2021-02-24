@@ -1,0 +1,51 @@
+body{
+    background-color: blue;
+    color: White;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.navDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    background-color: orange;
+    margin: 5%;
+    padding: 1%;
+    width: 37%;
+}
+
+header a{
+    margin-left: 10%;
+}
+
+.card{
+    margin: 3%;
+    padding: 2%;
+    background-color: orange;
+    color: White;
+}
+
+.new-link{
+    color: white;
+    font-size: medium;
+}
+
+.delete-btn{
+    background-color: red;
+    font-size: large;
+}
+
+.country-title{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 74px;
+
+}

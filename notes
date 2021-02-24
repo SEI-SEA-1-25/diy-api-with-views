@@ -1,0 +1,26 @@
+// const country = await models.country.findByPk(req.params.id)
+        // const updatedCountry = await country.update({
+        //   name: req.body.name,
+        //   founded: req.body.founded,
+        //   population: req.body.population
+        // })
+
+        // await country.updateCountry(updatedCountry)
+
+    
+    
+    //     await models.country.update(
+    //       {name: req.body.name,
+    //       founded: req.body.founded,
+    //       population: req.body.population
+    //       }, {
+    //       where: {
+    //         id: req.params.id
+    //       }
+    // })
+
+    // await models.country.update(req.body, {
+    //   where: {
+    //     id: req.params.id
+    //   }
+    // })
