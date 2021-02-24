@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
   models.continent.create({
     name: req.body.name,
   }).then((continent) => {
-    res.json({continent})
+    res.json({ continent })
   })
 })
 
@@ -31,7 +31,7 @@ router.post('/:id/countries', async (req, res) => {
     population: req.body.population,
   })
 
-  res.json({country})
+  res.json({ country })
 })
 
 router.get('/:id/countries', async (req, res) => {
