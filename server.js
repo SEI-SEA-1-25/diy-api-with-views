@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false })); // urlencoded gets the form da
 app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
-  res.send("hello from root!");
+  res.render("index", { name: "Welcome to DIY" });
 });
 
 app.use("/countries", require("./controllers/countriesController"));
