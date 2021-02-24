@@ -8,7 +8,11 @@ const models = require('../models')
 //              //               //
 router.get('/', (req, res) => {
   models.continent.findAll().then((continents) => {
-    res.json({ continents })
+    
+    res.render(countries/show',{
+      
+    })
+    // res.json({ continents })
   })
 })
 //              //               //

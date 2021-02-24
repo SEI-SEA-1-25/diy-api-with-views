@@ -1,9 +1,6 @@
 const express = require('express');
 const rowdy = require('rowdy-logger');
 
-
-
-
 //              //               //
 //          Varianles            //
 //              //               //
