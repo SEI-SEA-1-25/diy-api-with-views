@@ -1,0 +1,23 @@
+<h1>Country Show Page</h1>
+<a href="/countries">Country Index</a>
+
+<div class="card">
+      <h2><%= country.name %></h2>
+
+      <form method="POST" action="/countries/<%= country.id %>/?_method=PUT">
+            <label>Name</label>
+            <input type="text" name="name" value="<%= country.name %>">
+      
+            <label>Founded</label>
+            <input type="text" name="Founded" value="<%= country.founded %>">
+      
+            <label>Population</label>
+            <input type="text" name="Population" value="<%= country.population %>">
+      
+            <input type="submit" value="Update">
+      </form>
+
+      <form method="POST" action="/countries/<%= country.id %>/?_method=DELETE">
+            <input type="submit" value="Delete">
+      </form>
+</div>
