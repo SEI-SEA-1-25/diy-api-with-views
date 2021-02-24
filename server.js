@@ -1,30 +1,30 @@
 // MODULES
 const express = require('express')
 const rowdy = require('rowdy-logger')
-const db = require('./models')
+const models = require('./models')
 const ejsLayouts = require('express-ejs-layouts')
 const methodOverride = require('method-override')
 
 // VARIABLES
-const rowdyRes = rowdy.begin(app)
 const app = express()
+const rowdyRes = rowdy.begin(app)
+
 
 // MIDDLEWARE
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(ejsLayouts)
-app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }))
-
-// ROUTES
-app.get('/', (req, res) => {
-  res.send('hello from root!')
-})
+app.use(methodOverride('_method'))
 
 // CONTROLLERS - grabs from migrations
 app.use('/countries', require('./controllers/countriesController'))
 app.use('/continents', require('./controllers/continentsController'))
 
+// ROUTES
+app.get('/', (req, res) => {
+  res.render('index')
+})
 
 // START SERVER - PORT
 const PORT = process.env.PORT || 3000
