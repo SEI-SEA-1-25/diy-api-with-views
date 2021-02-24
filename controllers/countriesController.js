@@ -18,7 +18,7 @@ router.get('/new', (req, res) => {
 })
 
 
-// CREATE ROUTE /////
+// CREATE ROUTE ///// --GOOD
 router.post('/', async (req, res) => {
   try {
     const newCountry = await models.country.create({
@@ -44,21 +44,34 @@ router.get('/:id', async (req, res) => {
 })
 
 // UPDATE ROUTE
+// router.put('/:id', async (req, res) => {
+//   try {
+//     await models.country.update(req.body, {
+//       where: {
+//         id: req.params.id
+//       }
+//     })
+
+//     const country = await models.country.findByPk(req.params.id)
+//     res.redirect(`/countries/${req.params.id}`)
+//   } catch (error) {
+//     console.log(error)
+//   }
+// })
+
 router.put('/:id', async (req, res) => {
   try {
-    await models.country.update(req.body, {
-      where: {
-        id: req.params.id
-      }
-    })
-
     const country = await models.country.findByPk(req.params.id)
+    const updatedCountry = await country.update({
+      name: req.body.name,
+      founded: req.body.founded,
+      population: req.body.population
+    })
     res.redirect(`/countries/${req.params.id}`)
-  } catch (error) {
-    console.log(error)
+  } catch (err) {
+    console.log(err)
   }
 })
-
 
 // DELETE ROUTE -- GOOD
 router.delete('/:id', (req, res) => {
