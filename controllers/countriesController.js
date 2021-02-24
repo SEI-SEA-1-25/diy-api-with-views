@@ -1,15 +1,20 @@
 const router = require('express').Router()
-
 const models = require('../models')
 
 router.get('/', (req, res) => {
-  models.country.findAll().then((countries) => {
-    res.json({ countries })
+  models.country.findAll({ raw: true }).then((countries) => {
+    res.render('countries/index', { countries })
   })
   .catch((error) => {
     res.json({ error })
   })
 })
+
+// New Country Form Route
+router.get('/new', (req, res) => {
+  res.render('countries/new')
+})
+
 
 router.post('/', (req, res) => {
   models.country.create({
@@ -17,7 +22,7 @@ router.post('/', (req, res) => {
     founded: req.body.founded,
     population: req.body.population
   }).then((country) => {
-    res.json({ country })
+    res.redirect(`/countries/${country.id}`)
   })
   .catch((error) => {
     res.json({ error })
@@ -26,8 +31,8 @@ router.post('/', (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const country = await models.country.findByPk(req.params.id)
-    res.json({ country })
+    const country = await models.country.findByPk(req.params.id, { raw: true })
+    res.render('countries/show', { country })
   } catch (error) {
     res.json({ error })
   }
@@ -42,7 +47,7 @@ router.put('/:id', async (req, res) => {
     })
 
     const country = await models.country.findByPk(req.params.id)
-    res.json({ country })
+    res.redirect(`/countries/${req.params.id}`)
   } catch (error) {
     res.json({ error })    
   }
@@ -53,7 +58,7 @@ router.delete('/:id', (req, res) => {
     where: { id: req.params.id }
   })
   .then((country) => {
-    res.json({ country })
+    res.redirect('/countries')
   })
   .catch((err) => {
     res.json({ error })
