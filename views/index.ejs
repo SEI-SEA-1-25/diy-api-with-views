@@ -1,0 +1,26 @@
+<h1>Homepage</h1>
+<a href="/anotherpage">Another Page</a>
+
+<!-- Templating w/ variables  -->
+<h2>Hi, <%= name %></h2>
+
+
+<!-- Loops -->
+<h3>These are all the countries in this continent</h3>
+
+
+<ul>                   <!-- needs variable to countries path ralation to continent -->
+    <% for(let i = 0; i < <%= countries %>.length; i++) { %>
+        <li><%= countries[i] %></li>
+    <% } %>
+</ul>
+
+<!-- Conditional Rendering -->
+<% if(continent.length > 3) { %>
+
+
+       <!-- >needs variable to continents name path -->
+    <p><%= continent_name %> has a lot of countries!</p>
+<% } else { %>
+    <p><%= name %> doesn't have a lot of friends :(</p>
+<% } %>
