@@ -1,0 +1,15 @@
+<h1>Country Show Page</h1>
+<a href="/countries">Back to countries</a>
+<div class="card">
+    <h2><%= creature.type %></h2>
+    <img src="" alt="">
+    <form method="POST" action="/countries/<%= creature.id %>/?_method=DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    <form method="POST" action="/countries/<%= creature.id %>/?_method=PUT">
+        <label>Type</label>
+        <input type="text" name="type" value="<%= creature.type %>">
+        <label>Image</label>
+        <input type="image" src="<%= country.img_url %>" alt="<%= country.type %>" width="200">
+    </form>
+</div>
