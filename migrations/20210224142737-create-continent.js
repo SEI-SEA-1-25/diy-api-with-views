@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('countries', {
+    await queryInterface.createTable('continents', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,15 +10,6 @@ module.exports = {
       },
       name: {
         type: Sequelize.TEXT
-      },
-      founded: {
-        type: Sequelize.INTEGER
-      },
-      population: {
-        type: Sequelize.INTEGER
-      },
-      continentId: {
-        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +22,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('countries');
+    await queryInterface.dropTable('continents');
   }
 };
