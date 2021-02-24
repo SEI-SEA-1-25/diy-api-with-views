@@ -4,7 +4,8 @@ const models = require('../models')
 
 router.get('/', (req, res) => {
   models.country.findAll().then((countries) => {
-    res.json({ countries })
+    res.render('countries/index', {
+      countries: countries })
   })
   .catch((error) => {
     res.json({ error })
