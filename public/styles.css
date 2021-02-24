@@ -1,0 +1,40 @@
+body {
+    margin: 0px;
+    background-color: rgb(241, 194, 194);
+
+}
+
+
+header{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: maroon;
+
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+header a:hover {
+    cursor: pointer;
+    color: rgb(252, 236, 149);
+
+}
+
+
+.card {
+    border: 1px solid white;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+
+}
