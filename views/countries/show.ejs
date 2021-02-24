@@ -1,0 +1,30 @@
+<h1 class="country-title"><%=country.name%></h1>
+
+<div class = "card">
+    <h2>Year Founded: <%=country.founded%></h2>
+    <h2>Current Population: <%=country.population%></h2>
+
+</div>
+
+
+</form>
+
+<form method="POST" action="/countries/<%=country.id%>/?_method=PUT">
+    <label>Country Name</label>
+    <input type="text" name="name" value="<%= country.name %>">
+    
+    <label>Year Founded</label>
+    <input type="text" name="founded" value="<%= country.founded %>">
+    
+    <label>Population</label>
+    <input type="text" name="population" value="<%= country.population %>">
+    <input type="submit" value = "Update">
+    </form>
+    
+    <form method="POST" action="/countries/<%=country.id%>/?_method=DELETE">
+        <h3>TO DELETE THIS COUNTRY CLICK BELOW</h3>
+        <input class = "delete-btn" type="submit" value="Delete"> 
+
+
+
+        
