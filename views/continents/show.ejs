@@ -2,7 +2,7 @@
 <a href="/continents">Back to Continents Index</a>
 
 <div class="card">
-  <h2><%= continent.name %> the <%= continent.size %></h2>
+  <h2><%= continent.name %> has a population of <%= continent.size %></h2>
   <form method="POST" action="/continents/<%= continent.id %>/?_method=DELETE">
     <input type="submit" value="Delete" />
   </form>
