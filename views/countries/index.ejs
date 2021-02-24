@@ -1,0 +1,18 @@
+<div class="countriesheader">
+    <h1>This is a countries page</h1>
+</div>
+
+<div class="countriesToHome">
+    <a href="/">HOME</a>
+</div>
+<div class="countriesCreate">
+    <a href="/countries/new">Create a New Country</a>
+</div>
+
+<h2>Click to see more information</h2>
+
+<% countries.forEach(country => { %>
+    <div class="card">
+        <a href="/countries/<%= country.id %>"><%= country.name %></a>
+    </div>
+<% }) %>

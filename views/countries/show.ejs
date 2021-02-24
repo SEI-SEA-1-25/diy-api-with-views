@@ -1,0 +1,26 @@
+<div class="countryShowHeader">
+    <h1>Country Show Page</h1>
+    <a href="/countries">Back to countries page</a>
+</div>
+
+<div class="country">
+    <h2>The population of <span><%= country.name %></span> is <span><%= country.population %></span> and the country was founded in <span><%= country.founded %></span></h2>
+</div>
+
+<div class="countryForm">
+    <form method="POST" action="/countries/<%= country.id %>/updatedcountry/?_method=PUT">
+        <label>Name</label>
+        <input type="text" name="name" value="<%= country.name %>">
+
+        <label>Year Founded</label>
+        <input type="number" name="founded" value="<%= country.founded %>">
+        
+        <label>Population</label>
+        <input type="number" name="population" value="<%= country.population %>">
+
+        <input type="submit" value="Update">
+    </form>
+    <form method="POST" action="/countries/<%= country.id %>/?_method=DELETE">
+        <input type="submit" value="Delete"> 
+    </form>
+</div>

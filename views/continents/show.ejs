@@ -1,0 +1,23 @@
+<div class="countryShowHeader">
+    <h1>Continent Show Page</h1>
+    <a href="/continents">Back to continents page</a>
+</div>
+
+<div class="country">
+    <h2>The size of <span><%= continent.name %></span> is <span><%= continent.size %></span></h2>
+</div>
+
+<div class="countryForm">
+    <form method="POST" action="/continents/<%= continent.id %>/updatedcontinent/?_method=PUT">
+        <label>Name</label>
+        <input type="text" name="name" value="<%= continent.name %>">
+
+        <label>Size</label>
+        <input type="number" name="size" value="<%= continent.size %>">
+
+        <input type="submit" value="Update">
+    </form>
+    <form method="POST" action="/continents/<%= continent.id %>/?_method=DELETE">
+        <input type="submit" value="Delete"> 
+    </form>
+</div>
