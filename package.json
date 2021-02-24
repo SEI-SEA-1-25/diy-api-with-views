@@ -4,7 +4,8 @@
   "description": "## **Deliverable**:",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -17,9 +18,13 @@
   },
   "homepage": "https://github.com/pmacaluso3/diy-api#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "method-override": "^3.0.0",
     "pg": "^8.5.1",
     "rowdy-logger": "^1.0.2",
     "sequelize": "^6.5.0"
-  }
+  },
+  "keywords": []
 }
