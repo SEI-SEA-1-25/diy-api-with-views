@@ -1,0 +1,26 @@
+<h1><%= continent.name %> Page</h1>
+<a href="/continents">Back to Continents</a>
+<div class="card">
+    <h2><%= continent.name %></h2>
+        <ul>
+            <li>Size: <%= continent.size %></li>
+        </ul>
+    <form method="POST" action="/continents/<%= continent.id %>/?_method=DELETE">
+        <input type="submit" value="Delete">
+    </form>
+
+    <form method="POST" action="/continents/<%= continent.id %>/?_method=PUT">
+        <label>Name: </label>
+        <input type="text" name="name">
+
+        <label>Size: </label>
+        <input type="integer" name="size">
+
+    <input type="submit">
+
+    <a href="/continents/continent_countries">Countries in this Continent</a>
+    <a href="/continents/new_country">Add a country to this Continent</a>
+    
+ 
+    </form>
+</div>
