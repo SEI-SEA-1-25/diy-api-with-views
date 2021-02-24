@@ -1,0 +1,9 @@
+<h1>Countries Index Page</h1>
+<a href="/countries/new">New Country</a>
+<a href="../continents">To continents</a>
+
+<% countries.forEach(country => { %>
+    <a href="/countries/<%= countries.id %>">
+        <%= countries.name %>
+    </a>
+    <% }) %>

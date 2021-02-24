@@ -11,12 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.continent.hasMany(models.country)
     }
   };
   continent.init({
-    name: DataTypes.TEXT,
-    size: DataTypes.INTEGER
+    name: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'continent',

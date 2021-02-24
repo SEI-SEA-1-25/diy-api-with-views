@@ -11,13 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.country.belongsTo(models.continent)
     }
   };
   country.init({
     name: DataTypes.TEXT,
-    founded: DataTypes.INTEGER,
-    population: DataTypes.INTEGER,
     continentId: DataTypes.INTEGER
   }, {
     sequelize,

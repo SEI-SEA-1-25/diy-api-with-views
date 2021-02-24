@@ -1,0 +1,21 @@
+<h1>
+    <%= countries.name %> Page!</h1>
+<a href="/countries">Back to countries</a>
+
+<div>
+    <h2>The country of
+        <%= countries.name %>
+    </h2>
+    <form method="POST" action="/countries/<%= countries.id %>/?_method=PUT">
+        <label>Country</label>
+        <input type="text" name="country" value="<%= countries.name %>">
+        <input type="submit" value="Update">
+    </form>
+
+    <form method="POST" action="/countries/<%= countries.name %>>/?_method=DELETE">
+        <input type="submit" value="Delete">
+    </form>
+
+    </form>
+
+</div>
