@@ -5,7 +5,10 @@ const rowdy = require('rowdy-logger')
 const rowdyRes = rowdy.begin(app)
 
 
-
+app.set('view engine', 'ejs')
+app.use(require('express-ejs-layout'))
+app.use(require('method-overide')('_method'))
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
