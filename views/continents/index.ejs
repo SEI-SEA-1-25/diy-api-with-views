@@ -1,0 +1,15 @@
+<h1>Continents Index Page</h1>
+
+
+
+<% continents.forEach(continent => { %>
+    <div class="card">
+        <a href="/continents/<%= continent.id %>" ><%= continent.name %> is <%= continent.size %> in size
+        </a>
+
+
+    </div>
+
+
+
+<% }) %>
