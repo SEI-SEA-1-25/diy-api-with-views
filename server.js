@@ -12,7 +12,7 @@ const rowdyResults = rowdy.begin(app);
 
 // Middleware
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 app.use(ejsLayouts);
 app.use(express.urlencoded({ extended: false })); // urlencoded gets the form data from the request and puts it inside of req.body
 app.use(methodOverride("_method"));
@@ -22,13 +22,18 @@ app.use("/countries", require("./controllers/countriesController"));
 app.use("/continents", require("./controllers/continentsController"));
 
 // Routes
-app.get("/", (req, res) => {
-  res.send("hello from root!");
-});
-// app.get("./views/anotherpage.ejs", (req, res) => {
-//   res.render("./views/anotherpage.ejs");
+// app.get("/", (req, res) => {
+//   res.send("hello from root!");
 // });
 
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/views/index.html");
+//   // res.render('index')
+// });
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
 // Start the server!
 app.listen(PORT, () => {
   rowdyResults.print();
