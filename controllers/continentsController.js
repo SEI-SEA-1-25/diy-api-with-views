@@ -39,13 +39,13 @@ router.get('/:id', (req, res) => {
 // show all countries in a continent
 
 router.get('/:id/countries', async (req, res) => {
-  const continent = await models.continent.findByPk(req.params.id, { raw: true })
+  const continent = await models.continent.findByPk(req.params.id)
 
   const countries = await continent.getCountries()
 
   res.render(`continents/countries`, { countries, continent })
 })
-
+// something not right with this guy
 router.post('/:id/countries', async (req, res) => {
   const continent = await models.continent.findByPk(req.params.id)
 
